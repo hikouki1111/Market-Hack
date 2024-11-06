@@ -1,0 +1,1 @@
+//replace this.canPlace = false; to this.canPlace = true;
