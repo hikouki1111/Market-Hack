@@ -4,7 +4,11 @@ Extract `Supermarket Together_Data.zip` to `SteamLibrary\steamapps\common\Superm
 
 # Features
 Flight Bind:`G`
+<br>
 Speed Bind`V`
+<br>
 FastBuild Bind`NONE`
+<br>
 InfiniteLevel Bind`NONE`
+<br>
 InfiniteFunds Bind`NONE`
