@@ -3,7 +3,7 @@
 Extract `Supermarket Together_Data.zip` to `SteamLibrary\steamapps\common\Supermarket Together`
 
 # Features
-**Flight** Bind:`G`
+**Flight** Bind`G`
 <br>
 **Speed** Bind`V`
 <br>
