@@ -3,12 +3,12 @@
 Extract `Supermarket Together_Data.zip` to `SteamLibrary\steamapps\common\Supermarket Together`
 
 # Features
-Flight Bind:`G`
+**Flight** Bind:`G`
 <br>
-Speed Bind`V`
+**Speed** Bind`V`
 <br>
-FastBuild Bind`NONE`
+**FastBuild** Bind`NONE`
 <br>
-InfiniteLevel Bind`NONE`
+**InfiniteLevel** Bind`NONE`
 <br>
-InfiniteFunds Bind`NONE`
+**InfiniteFunds** Bind`NONE`
