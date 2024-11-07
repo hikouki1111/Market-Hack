@@ -6,9 +6,9 @@ private void OnGUI()
 	GUIStyle guistyle = new GUIStyle();
 	guistyle.fontSize = 40;
 	guistyle.normal.textColor = Color.white;
-	Vector2 vector = guistyle.CalcSize(new GUIContent("Market Hack 1.1"));
+	Vector2 vector = guistyle.CalcSize(new GUIContent("Market Hack 1.2"));
 	GUI.DrawTexture(new Rect(20f, 200f, vector.x + 10f, 40f), texture2D);
-	GUI.Label(new Rect(25f, 200f, 200f, 40f), "Market Hack 1.1", guistyle);
+	GUI.Label(new Rect(25f, 200f, 200f, 40f), "Market Hack 1.2", guistyle);
 }
 
 private void Update()

@@ -7,6 +7,10 @@ Extract `Supermarket Together_Data.zip` to `SteamLibrary\steamapps\common\Superm
 <br>
 **Speed** Bind`V`
 <br>
+**Hop** Bind`B`
+<br>
+**AirJump** Bind`N`
+<br>
 **FastBuild** Bind`NONE`
 <br>
 **InfiniteLevel** Bind`NONE`

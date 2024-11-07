@@ -1,14 +1,89 @@
 private bool flightHack;
 private bool speedHack;
+private bool spammerHack;
+private bool hopHack;
+private bool airJumpHack;
 private float speedHackH = 30f;
 private float flightHackH = 30f;
 private float flightHackV = 30f;
+
+private void JumpAndGravity()
+{
+    //replace this.Grounded to this.Grounded || airJumpHack
+    if (this.Grounded || airJumpHack)
+    {
+        this._fallTimeoutDelta = this.FallTimeout;
+        if (this._verticalVelocity < 0f)
+        {
+            this._verticalVelocity = -2f;
+        }
+        if (this.MainPlayer.GetButton("Jump") && this._jumpTimeoutDelta <= 0f && this.allowPlayerInput)
+        {
+            this._verticalVelocity = Mathf.Sqrt(this.JumpHeight * -2f * this.Gravity);
+        }
+        if (this._jumpTimeoutDelta >= 0f)
+        {
+            this._jumpTimeoutDelta -= Time.deltaTime;
+        }
+    }
+    else
+    {
+        this._jumpTimeoutDelta = this.JumpTimeout;
+        if (this._fallTimeoutDelta >= 0f)
+        {
+            this._fallTimeoutDelta -= Time.deltaTime;
+        }
+    }
+    if (this._verticalVelocity < this._terminalVelocity)
+    {
+        this._verticalVelocity += this.Gravity * Time.deltaTime;
+    }
+}
+
+private void Hop()
+{
+    if (this.flightHack)
+    {
+        return;
+    }
+
+    this._speed = this.speedHack ? this.speedHackH : this.SprintSpeed;
+    if (this.Grounded)
+    {
+        this._jumpTimeoutDelta = 0f;
+        this._fallTimeoutDelta = this.FallTimeout;
+        if (this._verticalVelocity < 0f)
+        {
+            this._verticalVelocity = -2f;
+        }
+        if (this._jumpTimeoutDelta <= 0f && this.allowPlayerInput)
+        {
+            this._verticalVelocity = Mathf.Sqrt(this.JumpHeight * -2f * this.Gravity);
+        }
+        if (this._jumpTimeoutDelta >= 0f)
+        {
+            this._jumpTimeoutDelta -= Time.deltaTime;
+        }
+    }
+    else
+    {
+        this._jumpTimeoutDelta = this.JumpTimeout;
+        if (this._fallTimeoutDelta >= 0f)
+        {
+            this._fallTimeoutDelta -= Time.deltaTime;
+        }
+    }
+    if (this._verticalVelocity < this._terminalVelocity)
+    {
+        this._verticalVelocity += this.Gravity * Time.deltaTime;
+    }
+}
 
 //put after 
 //if (!this.isTeleporting)
 //{
 
-private moveHook() {
+private void moveHook() {
     if (this.speedHack)
     {
         this._speed = this.speedHackH;
@@ -26,13 +101,16 @@ private moveHook() {
             this._verticalVelocity = -this.flightHackV;
         }
     }
+    if (this.hopHack) {
+        Hop();
+    }
 }
 
 //put after
 //private void Update()
 //{
 
-private toggleUpdate() {
+private void updateHook() {
     if (Input.GetKeyDown(KeyCode.G))
     {
         this.flightHack = !this.flightHack;
@@ -40,5 +118,11 @@ private toggleUpdate() {
     if (Input.GetKeyDown(KeyCode.V))
     {
         this.speedHack = !this.speedHack;
+    }
+    if (Input.GetKeyDown(KeyCode.B)) {
+        this.hopHack = !this.hopHack;
+    }
+    if (Input.GetKeyDown(KeyCode.N)) {
+        this.airJumpHack = !this.airJumpHack;
     }
 }
