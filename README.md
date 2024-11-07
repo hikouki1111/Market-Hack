@@ -13,6 +13,8 @@ Extract `Supermarket Together_Data.zip` to `SteamLibrary\steamapps\common\Superm
 <br>
 **FastBuild** Bind`NONE`
 <br>
+**ForceBuild** Bind`NONE`
+<br>
 **InfiniteLevel** Bind`NONE`
 <br>
 **InfiniteFunds** Bind`NONE`
